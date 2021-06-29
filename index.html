@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--  -->
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Submit Request</title>
+		<link rel="stylesheet" href="css/requestform.css">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Submit Request</title>
-  <link rel="stylesheet" href="css/requestform.css">
-  <!--  -->
-  <script defer src="javascript/download.js"></script>
-</head>
+		<!-- Scripts -->
+		<script defer src="javascript/download.js"></script>
+		<!-- <script defer src="javascript/numberedlist.js"></script>-->
+		<script defer src="javascript/input.js"></script>
+
+		<!-- style -->
+		<style>
+			ol.numbered {list-style-type: decimal;}
+		</style>
+	</head>
+
 	<body>
 	  <main id="main-holder">
 		<h1 id="login-header">Request Form</h1>
-		<form action="" method="post">
+		<form action="/action_page.php" method="post">
 			<p>
 				<!-- Users Name -->
 				<label for="fullname">Full Name:</label>
@@ -36,8 +45,10 @@
 				<input type="text" name="usercount" id="usercount"><br>
 				
 				<!-- List of all required features -->
-				<br><label for="requiredfeatures">Required Features:</label>
-				<input type="text" name="requiredfeatures" id="requiredfeatures"><br>
+				<br><label for="list">Required Features:</label>
+				<ol id="list" class="numbered"></ol>
+				<input type="text" name="userChoice" id="userChoice" placeholder="">
+				<button onclick="addListItem(textNodeValue)" input type='button'>Add item </button><br>
 				
 				<!-- Outline of ongoing maintenance for the process -->
 				<br><label for="requiredmaintenance">Maintenance Requirements:</label>
