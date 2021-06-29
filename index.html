@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Submit Request</title>
-  <!-- <link rel="stylesheet" href="css/requestForm.css"> -->
+  <link rel="stylesheet" href="css/requestform.css">
   <!--  -->
   <script defer src="javascript/download.js"></script>
 </head>
@@ -30,7 +30,29 @@
 				<br><label for="currentdescription">Description:</label><br>
 				<textarea rows = "5" cols = "50" class="text" id="currentdescription" name = "currentdescription" placeholder= "Please provide a brief description of the current process and the time taken to complete"></textarea>
 				
+				<!-- Number of users -->
+				<br><label for="usercount">Number of current/potential users:</label>
+				<input type="text" name="usercount" id="usercount"><br>
 				
+				<!-- List of all required features -->
+				<br><label for="requiredfeatures">Required Features:</label>
+				<input type="text" name="requiredfeatures" id="requiredfeatures"><br>
+				
+				<!-- Outline of ongoing maintenance for the process -->
+				<br><label for="requiredmaintenance">Maintenance Requirements:</label>
+				<input type="text" name="requiredmaintenance" id="requiredmaintenance"><br>
+				
+				<!-- Identify all known stakeholders of the current business process -->
+				<br><label for="stakeholders">Stakeholders:</label>
+				<input type="text" name="stakeholders" id="stakeholders"><br>
+				
+				<!-- Outline discussions or engagements with users and relevant stakeholders -->
+				<br><label for="discussions">Discussions:</label>
+				<input type="text" name="discussions" id="discussions"><br>
+				
+				<!-- What management information reporting requirements are needed -->
+				<br><label for="managementrequirements">Management Reporting Requirements:</label>
+				<input type="text" name="managementrequirements" id="managementrequirements"><br>
 				
 				<!-- Selecting and uploading multiple files
 				https://www.w3schools.com/tags/att_input_multiple.asp
@@ -40,8 +62,8 @@
 				<input type="file" id="files" name="files" multiple><br><br>
 				<!--<input type="submit"> -->
 
-			<button id="submitButton">submit</button>
-			<button type="button" onclick="download(this.form)" id="submitButton">Download</button>
+			<!--<button id="submitButton">submit</button> -->
+			<button type="button" onclick="download(this.form)" id="request-form-download">Download</button>
 
 		</form>
 	  </main>
