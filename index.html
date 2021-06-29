@@ -1,34 +1,49 @@
- <head>  
-   <link rel="stylesheet" type="text/css" href="css/style.css"/>  
-</head>  
+<!DOCTYPE html>
+<html lang="en">
 
-<!DOCTYPE html>    
-<html>    
-<head>    
-    <title>Login Form</title>    
-    <link rel="stylesheet" type="text/css" href="css/style.css">    
-</head>    
-<body>    
-    <h2>Login Page</h2><br>    
-    <div class="login">    
-    <form id="login" method="get" action="login.php">    
-        <label><b>User Name     
-        </b>    
-        </label>    
-        <input type="text" name="Uname" id="Uname" placeholder="Username">    
-        <br><br>    
-        <label><b>Password     
-        </b>    
-        </label>    
-        <input type="Password" name="Pass" id="Pass" placeholder="Password">    
-        <br><br>    
-        <input type="button" name="log" id="log" value="Log In Here">       
-        <br><br>    
-        <input type="checkbox" id="check">    
-        <span>Remember me</span>    
-        <br><br>    
-        Forgot <a href="#">Password</a>    
-    </form>     
-</div>    
-</body>    
-</html>     
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Request</title>
+  <!-- <link rel="stylesheet" href="css/requestForm.css"> -->
+  <!--  -->
+  <script defer src="javascript/download.js"></script>
+</head>
+	<body>
+	  <main id="main-holder">
+		<form action="" method="post">
+			<p>
+				<!-- Users Name -->
+				<label for="fullname">Full Name:</label>
+				<input type="text" name="fullname" id="fullname"><br>
+				
+				<!-- Team Name -->
+				<br><label for="teamname">Team Name:</label>
+				<input type="text" name="teamname" id="teamname"><br>
+				
+				<!-- Business proces/tool name -->
+				<br><label for="toolname">Tool Name:</label>
+				<input type="text" name="toolname" id="toolname"><br>
+				
+				<!-- Description -->
+				<!-- https://www.w3schools.com/tags/att_textarea_form.asp -->
+				<br><label for="currentdescription">Description:</label><br>
+				<textarea rows = "5" cols = "50" class="text" id="currentdescription" name = "currentdescription" placeholder= "Please provide a brief description of the current process and the time taken to complete"></textarea>
+				
+				
+				
+				<!-- Selecting and uploading multiple files
+				https://www.w3schools.com/tags/att_input_multiple.asp
+				-->
+				<br><br>
+				<label for="files">Select files:</label>
+				<input type="file" id="files" name="files" multiple><br><br>
+				<!--<input type="submit"> -->
+
+			<button id="submitButton">submit</button>
+			<button type="button" onclick="download(this.form)" id="submitButton">Download</button>
+
+		</form>
+	  </main>
+	</body>
+</html>
