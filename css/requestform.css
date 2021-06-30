@@ -74,7 +74,7 @@ form fieldset ol.numbered button:hover {
 
 form fieldset li {
   /* list-style: none; */
-  padding: 5px; /* spacing between each field */
+  padding: 7px; /* spacing between each field */
   margin: 0;
 }
 
@@ -166,8 +166,8 @@ option {
 
 /* Style the download button */
 #request-form-download {
-  width: 100%;
-  padding: 7px;
+  width: 50%;
+  padding: 10px;
   border: none;
   border-radius: 5px;
   color: white;

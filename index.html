@@ -19,7 +19,7 @@
 
 	<body>
 	  <main id="main-holder">
-		<h1 id="Request-header">Request Form</h1>
+		<h1 id="Request-header">Application Request Form</h1>
 		<form name="RequestForm" action="/action_page.php" method="post">
 			<p>Please complete the form below. Mandatory fields marked <em>*</em></p>
 			<!-- <p class="required">* Required</p> -->
@@ -29,13 +29,13 @@
 						<li>
 							<!-- Users Name -->
 							<label for="fullname"><em>*</em>Full Name:</label>
-							<input required type="text" name="fullname" id="fullname" placeholder="">
+							<input required type="text" name="fullname" id="fullname" placeholder="Please enter you name">
 							</li>
 							
 						<li>
 							<!-- Team Name -->
 							<label for="teamname">Team Name:</label>
-							<input type="text" name="teamname" id="teamname" placeholder="">
+							<input type="text" name="teamname" id="teamname" placeholder="Please enter the name of your team">
 							</li>
 						
 						<li>
@@ -111,6 +111,10 @@
 							<input type="file" id="files" name="files" multiple>
 							<!--<input type="submit"> -->
 							</li>
+							
+						<li>
+							<button type="button" onclick="download(this.form)" id="request-form-download">Download</button>
+							</li>
 					</ol>
 				</fieldset>
 				
@@ -118,7 +122,6 @@
 				<!-- <button type="button" onclick="validate(this.form)" id="request-form-validate">Validate</button> -->
 				
 				<!-- Download Button -->
-				<button type="button" onclick="download(this.form)" id="request-form-download">Download</button>
 			<div>
 		</form>
 	  </main>
