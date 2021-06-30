@@ -52,7 +52,7 @@ function formToXml(form){
     var inputs=form.elements;
     for(var i=0;i<inputs.length;i++){
     	var el=document.createElement("ELEMENT");
-      if (inputs[i].name != "feature"){
+      if (inputs[i].name != "feature" && inputs[i].name != ""){
       	el.setAttribute("name",inputs[i].name);
         el.setAttribute("value",inputs[i].value);
         xmldata.push(el.outerHTML);
