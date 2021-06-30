@@ -1,3 +1,8 @@
+/* 
+https://alistapart.com/article/prettyaccessibleforms/ 
+https://www.htmlgoodies.com/guides/html-forms-from-basics-to-style-layouts/
+*/
+
 /* Make the page use the entire screen */
 
 html{
@@ -15,7 +20,6 @@ body {
 }
 
 /* White rectangle in the middle of the screen */
-
 #main-holder {
   width: 50%;
   height: 100%;
@@ -26,110 +30,141 @@ body {
   border-radius: 7px;
   box-shadow: 0px 0px 5px 2px black;
 }
+/*  */
 
-/* -------------------------------------------------------------- */
-
-#login-header {}
-
-/* -------------------------------------------------------------- */
-
-/* Middle row of the main grid (contains the error message) */
-
-#login-error-msg-holder {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  justify-items: center;
-  align-items: center;
-}
-
-/* Error message. By default it's transparent, but the opacity is controlled
-by JavaScript */
-
-#login-error-msg {
-  width: 23%;
-  text-align: center;
-  margin: 0;
-  padding: 5px;
-  font-size: 12px;
-  font-weight: bold;
-  color: #8a0000;
-  border: 1px solid #8a0000;
-  background-color: #e58f8f;
-  opacity: 0;
-}
-
-#error-msg-second-line {
-  display: block;
-}
-
-/* -------------------------------------------------------------- */
-
-/* Adjust the positioning of the login form inside the last row of the
-main grid */
-
-#login-form {
-  align-self: flex-start;
-  display: grid;
-  justify-items: center;
-  align-items: center;
-}
-
-/* Style the login form fields' placeholders */
-
-.login-form-field::placeholder {
-  color: #3a3a3a;
-}
-
-/* Style the login form fields (username and password) */
-
-.login-form-field {
-  border: none;
-  border-bottom: 1px solid #3a3a3a;
+form fieldset {
   margin-bottom: 10px;
-  border-radius: 3px;
-  outline: none;
-  padding: 0px 0px 5px 5px;
+}
+form legend {
+  padding: 0 2px;
+  font-weight: bold;
+}
+form label {
+  display: inline-block;
+  line-height: 1.8; /* height of every line */
+  vertical-align: top;
+}
+form fieldset ol.fieldList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-/* Style the login button */
+form fieldset ol.numbered {
+	width: 400px;
+  list-style-type: decimal;
+  word-wrap: break-word;
+}
 
-#login-form-submit {
-  width: 100%;
-  padding: 7px;
+form fieldset ol.numbered button {
+  /* width: 100%; */
+  /* padding: 1px 5px; */
   border: none;
-  border-radius: 5px;
-  color: white;
+  border-radius: 33%;
+  color: red;
   font-weight: bold;
-  background-color: #3a3a3a;
+  background-color: white;
   cursor: pointer;
   outline: none;
 }
 
-/* Style generic text areas */
-#text_area{
-  height:auto;
-  width:400px;
-  background:white;
-  border:1px solid silver;
-  resize: vertical;
-  overflow:auto;
+form fieldset ol.numbered button:hover {
+   background-color: lightgrey;
 }
 
-/* Style the numbered list */
-#text_area_numbered_list{
-  height:auto;
-  width:400px;
-  background:white;
-  border:1px solid silver;
-  resize: vertical;
-  overflow:auto;
+form fieldset li {
+  /* list-style: none; */
+  padding: 5px; /* spacing between each field */
+  margin: 0;
 }
 
+
+form fieldset fieldset {
+  border: none;
+  margin: 3px 0 0;
+}
+form fieldset fieldset legend {
+  padding: 0 0 5px;
+  font-weight: normal;
+}
+form fieldset fieldset label {
+  display: block;
+  width: auto;
+}
+form em {
+  font-weight: bold;
+  font-style: normal;
+  color: #f00;
+}
+/* form label { */
+  /* width: 120px; /* Width of labels */ */
+/* } */
+form fieldset fieldset label {
+  margin-left: 123px; /* Width plus 3 (html space) */
+}
+
+input:focus{
+  background-color: lightgrey;
+}
+
+/* Style for Input tezt  */
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid DimGrey;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+/*Style for text when focused */
+input[type=text]:focus {
+  background-color: lightgrey;
+}
+
+/* Style for text area */
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid DimGrey;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+textarea.smallarea {
+  height: 60px;
+  width: 100%;
+}
+
+/*Style for text area when focused */
+textarea:focus {
+  background-color: lightgrey;
+}
+
+textarea:hidden {
+  width: 20%;
+}
+
+form em {
+  font-weight: bold;
+  font-style: normal;
+  color: red;
+}
+
+form select:required:invalid {
+	color: gray; 
+}
+option[value=""][disabled] {
+  display: none;
+}
+option {
+  color: black;
+}
 
 
 /* Style the download button */
-
 #request-form-download {
   width: 100%;
   padding: 7px;
@@ -141,5 +176,3 @@ main grid */
   cursor: pointer;
   outline: none;
 }
-
-

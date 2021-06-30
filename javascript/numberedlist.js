@@ -1,4 +1,4 @@
-var userInput = document.getElementById("userChoice").value;
+var userInput = document.getElementById("feature").value;
 var textNodeValue = userInput;
 
 // remove a list element when the user clicks on remove item
@@ -9,12 +9,13 @@ function deleteElement(clicked_id) {
   var parentNodeLi = clickedButton.parentElement;
   var listElement = parentNodeLi.parentElement;
   listElement.removeChild(parentNodeLi);
+  updateHiddenInput();
 }
 
 // adds a new list item
 function addListItem(textNodeValue) 
 {
-	var userInput = document.getElementById("userChoice").value;
+	var userInput = document.getElementById("feature").value;
 	var textNodeValue = userInput;
 	//add list item, button and image to button
 	var newElem = document.createElement("li");
@@ -51,6 +52,47 @@ function addListItem(textNodeValue)
   newElem.appendChild(newButton);
 
   //get the orderedList and append the new list
-  var unorderedList = document.getElementById("list");
+  var unorderedList = document.getElementById("featureslist");
   unorderedList.appendChild(newElem);
+  //const array = Array.from(unorderedList);
+  document.getElementById("feature").value = "";
+  updateHiddenInput();
+  //document.getElementById("target-id").innerHTML += "test";
+  //const myTarget = document.getElementById("target-id")
+  /*var myTarget = document.getElementById("target-id");
+  //var newList = document.getElementById("featureslist");
+  //myTarget.innerHTML += unorderedList;
+  myTarget.innerHTML = "";
+  for(let i = 0; i < unorderedList.children.length; i++)
+  {
+	  myTarget.innerHTML += (i+1)+ ". ";
+	  //myTarget.appendChild(unorderedList.child[i].innerHTML);
+	  myTarget.innerHTML += unorderedList.children[i].firstChild.nodeValue;
+	  myTarget.innerHTML += "<br>";
+  }*/
+
+  //for(let i = 0; i < unorderedList.length; i++)
+  //{
+//	  document.getElementById("target-id").innerHTML += unorderedList[i].nodeValue;
+  //}
+  //document.getElementById('target-id').innerHTML = 'html data';
+
+}
+
+//Writes the html object into a hidden textarea as an input
+function updateHiddenInput()
+{
+	var myList = document.getElementById("featureslist");
+	var myTarget = document.getElementById("features");
+	var listString = ""
+	myTarget.innerHTML = "";
+	for(let i = 0; i < myList.children.length; i++)
+  {
+	  listString += (i+1)+ ". ";
+	  listString += myList.children[i].firstChild.nodeValue;
+	  listString += "\n";
+	  myTarget.value = listString;
+	  
+  }
+	
 }

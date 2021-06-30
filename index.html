@@ -9,74 +9,117 @@
 
 		<!-- Scripts -->
 		<script defer src="javascript/download.js"></script>
-		<!-- <script defer src="javascript/numberedlist.js"></script>-->
-		<script defer src="javascript/input.js"></script>
-
-		<!-- style -->
-		<style>
-			ol.numbered {list-style-type: decimal;}
-		</style>
+		<script defer src="javascript/other.js"></script>
+		
+		<!-- <script defer src="javascript/validate.js"></script>-->
+		<script defer src="javascript/numberedlist.js"></script>
+		<!-- <script defer src="javascript/input.js"></script> -->
+		
 	</head>
 
 	<body>
 	  <main id="main-holder">
-		<h1 id="login-header">Request Form</h1>
-		<form action="/action_page.php" method="post">
-			<p>
-				<!-- Users Name -->
-				<label for="fullname">Full Name:</label>
-				<input type="text" name="fullname" id="fullname"><br>
+		<h1 id="Request-header">Request Form</h1>
+		<form name="RequestForm" action="/action_page.php" method="post">
+			<p>Please complete the form below. Mandatory fields marked <em>*</em></p>
+			<!-- <p class="required">* Required</p> -->
+			<div class = "fieldSet">
+				<fieldset>
+					<ol id="fieldList" class="fieldList">
+						<li>
+							<!-- Users Name -->
+							<label for="fullname"><em>*</em>Full Name:</label>
+							<input required type="text" name="fullname" id="fullname" placeholder="">
+							</li>
+							
+						<li>
+							<!-- Team Name -->
+							<label for="teamname">Team Name:</label>
+							<input type="text" name="teamname" id="teamname" placeholder="">
+							</li>
+						
+						<li>
+							<!-- Business proces/tool name -->
+							<label for="toolname">Tool Name:</label>
+							<input type="text" name="toolname" id="toolname" placeholder="What is the business process name/tool name">
+							</li>
+						
+						<li>
+							<!-- Description -->
+							<!-- https://www.w3schools.com/tags/att_textarea_form.asp -->
+							<label for="currentdescription">Description:</label>
+							<textarea rows = "5" cols = "50" class="text" id="currentdescription" name = "currentdescription" placeholder= "Please provide a brief description of the current process and the time taken to complete"></textarea>
+							</li>
+						
+						<li>
+							<!-- Number of users -->
+							<label for="usercount"><em>*</em>Number of current/potential users:</label>
+							<select required name = "usercount">
+								<option value = "" disabled selected hidden>Select number of users</option>
+								<option value = "0-9">From 0 to 9</option>
+								<option value = "10-99">From 10 to 99</option>
+								<option value = "100-249">From 100 to 249</option>
+								<option value = "250-499">From 250 to 499</option>
+								<option value = "500-999">From 500 to 999</option>
+								<option value = "1000+">Greater than 1000</option>
+								<!--<option value = "1000+">Custom Input</option>-->
+							</select>
+							<!--<input type="number" name="usercount" id="usercount">-->
+							</li>
+						
+						<li> 
+							<!-- List of all required features -->
+							<label for="features">Required Features:</label>
+							<ol class = "numbered" name="featureslist" id="featureslist"></ol>
+							<!-- <input type="text" name="feature" id="feature" placeholder=""> -->
+							<textarea class = "smallarea" name="feature" id="feature" placeholder="Please outline a required feature and click the button to add to list"></textarea>
+							<textarea hidden name="features" id="features" ></textarea>
+							<button onclick="addListItem(textNodeValue)" input type='button'>Add to list </button>
+							</li>
+						
+						<li>
+							<!-- Outline of ongoing maintenance for the process -->
+							<label for="requiredmaintenance">Maintenance Requirements:</label>
+							<input type="text" name="requiredmaintenance" id="requiredmaintenance" placeholder="Please outline any ongoing maintenance that may be required ">
+							</li>
+						
+						<li>
+							<!-- Identify all known stakeholders of the current business process -->
+							<label for="stakeholders">Stakeholders:</label>
+							<textarea class = "smallarea" name="stakeholders" id="stakeholders" oninput="dynamicShowHide();" placeholder="Please identify all known stakeholders of the current business process"></textarea>
+							</li>
+							
+						<li>
+							<div id="divDiscussions" style="display: none;">
+								<!-- Outline discussions or engagements with users and relevant stakeholders -->
+								<label for="discussions">Discussions/Engagements:</label>
+								<textarea class = "smallarea" name="discussions" id="discussions" placeholder="Please outline any discussions or engagement you have had with users and relevant stakeholders"></textarea>
+								</li>
+							<div>
+						
+						<li>
+							<!-- What management information reporting requirements are needed -->
+							<label for="managementrequirements">Management Reporting Requirements:</label>
+							<input type="text" name="managementrequirements" id="managementrequirements" placeholder="What management information reporting requirements are needed ">
+							</li>
+						<li>
+							<!-- Selecting and uploading multiple files
+							https://www.w3schools.com/tags/att_input_multiple.asp
+							-->
+							
+							<label for="files">Select files:</label>
+							<input type="file" id="files" name="files" multiple>
+							<!--<input type="submit"> -->
+							</li>
+					</ol>
+				</fieldset>
 				
-				<!-- Team Name -->
-				<br><label for="teamname">Team Name:</label>
-				<input type="text" name="teamname" id="teamname"><br>
+				<!-- Validate Button -->
+				<!-- <button type="button" onclick="validate(this.form)" id="request-form-validate">Validate</button> -->
 				
-				<!-- Business proces/tool name -->
-				<br><label for="toolname">Tool Name:</label>
-				<input type="text" name="toolname" id="toolname"><br>
-				
-				<!-- Description -->
-				<!-- https://www.w3schools.com/tags/att_textarea_form.asp -->
-				<br><label for="currentdescription">Description:</label><br>
-				<textarea rows = "5" cols = "50" class="text" id="currentdescription" name = "currentdescription" placeholder= "Please provide a brief description of the current process and the time taken to complete"></textarea>
-				
-				<!-- Number of users -->
-				<br><label for="usercount">Number of current/potential users:</label>
-				<input type="text" name="usercount" id="usercount"><br>
-				
-				<!-- List of all required features -->
-				<br><label for="list">Required Features:</label>
-				<ol id="list" class="numbered"></ol>
-				<input type="text" name="userChoice" id="userChoice" placeholder="">
-				<button onclick="addListItem(textNodeValue)" input type='button'>Add item </button><br>
-				
-				<!-- Outline of ongoing maintenance for the process -->
-				<br><label for="requiredmaintenance">Maintenance Requirements:</label>
-				<input type="text" name="requiredmaintenance" id="requiredmaintenance"><br>
-				
-				<!-- Identify all known stakeholders of the current business process -->
-				<br><label for="stakeholders">Stakeholders:</label>
-				<input type="text" name="stakeholders" id="stakeholders"><br>
-				
-				<!-- Outline discussions or engagements with users and relevant stakeholders -->
-				<br><label for="discussions">Discussions:</label>
-				<input type="text" name="discussions" id="discussions"><br>
-				
-				<!-- What management information reporting requirements are needed -->
-				<br><label for="managementrequirements">Management Reporting Requirements:</label>
-				<input type="text" name="managementrequirements" id="managementrequirements"><br>
-				
-				<!-- Selecting and uploading multiple files
-				https://www.w3schools.com/tags/att_input_multiple.asp
-				-->
-				<br><br>
-				<label for="files">Select files:</label>
-				<input type="file" id="files" name="files" multiple><br><br>
-				<!--<input type="submit"> -->
-
-			<!--<button id="submitButton">submit</button> -->
-			<button type="button" onclick="download(this.form)" id="request-form-download">Download</button>
-
+				<!-- Download Button -->
+				<button type="button" onclick="download(this.form)" id="request-form-download">Download</button>
+			<div>
 		</form>
 	  </main>
 	</body>

@@ -53,4 +53,6 @@ function addListItem(textNodeValue)
   //get the orderedList and append the new list
   var unorderedList = document.getElementById("list");
   unorderedList.appendChild(newElem);
+  //document.getElementById("features[]").innerHTML = Array.from(unorderedList);
+  
 }
