@@ -1,6 +1,8 @@
 //https://stackoverflow.com/questions/45888863/how-can-we-save-html-form-data-into-xml-format-using-javascript-or-jquery
 function validate(form) 
 {
+	var alphaExp = /^[a-zA-Z]+$/;
+	
 	var name = document.forms["RequestForm"]["fullname"];
 	//var teamname = document.forms["RequestForm"]["teamname"];
 	//var toolname = document.forms["RequestForm"]["toolname"];
@@ -14,12 +16,20 @@ function validate(form)
 	//var files = document.forms["RequestForm"]["files"];
 	//var  = document.forms["RequestForm"][""];
 
+	//Checks name for empty 
 	if (name.value == "") {
 		window.alert("Please enter your name.");
 		name.focus();
 		return false;
 	}
-
+	//Checks name for non-letters
+	if(!name.value.match(alphaExp))
+	{
+		alert("Please enter only alphabets");
+		name.focus();
+		return false;
+	}
+	//Checks if number of users has been selected
 	if (usercount.selectedIndex < 1) {
 		alert("Please select the number of users.");
 		usercount.focus();
@@ -29,6 +39,21 @@ function validate(form)
 	window.alert("All inputs are valid.");
 	return true;
 }
+
+// function allLetters(inputtxt)
+// {
+	// var letters = /^[A-Za-z]+$/;
+	// if(inputtxt.value.match(letters))
+	// {
+		// alert('Your name have accepted : you can try another');
+		// return true;
+	// }
+	// else
+	// {
+		// alert('Please input alphabet characters only');
+		// return false;
+	// }
+// }
 
 
 function downloadData(contentType,data,filename)
