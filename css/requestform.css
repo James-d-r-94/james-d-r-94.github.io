@@ -176,3 +176,21 @@ option {
   cursor: pointer;
   outline: none;
 }
+
+#request-form-download:hover {
+  background-color: #4a4a4a;
+}
+
+/* Links to look like buttons */
+a:link, a:visited {
+  background-color: #515151;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: #616161;
+}
