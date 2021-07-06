@@ -1,3 +1,6 @@
+//For various functions to do minor tasks
+
+//Dynamically show/hide discussions based on stakeholders being empty or not
 function dynamicShowHide()
 {
 	if(document.getElementById("stakeholders").value !== "")
